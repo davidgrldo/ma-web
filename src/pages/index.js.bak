@@ -1,0 +1,88 @@
+// "use client"; // Add this directive at the top
+
+// import { useState } from "react";
+
+// const Home = () => {
+//     const [period, setPeriod] = useState(4);
+//     const [file, setFile] = useState(null);
+//     const [response, setResponse] = useState(null);
+//     const [error, setError] = useState(null);
+
+//     const handleFileChange = (event) => {
+//         setFile(event.target.files[0]);
+//     };
+
+//     const handlePeriodChange = (event) => {
+//         setPeriod(event.target.value);
+//     };
+
+//     const handleSubmit = async (event) => {
+//         event.preventDefault();
+//         const formData = new FormData();
+//         formData.append("file", file);
+//         formData.append("period", period);
+
+//         try {
+//             const res = await fetch("http://localhost:8080/api/upload", {
+//                 method: "POST",
+//                 body: formData,
+//             });
+
+//             const data = await res.json();
+//             if (res.ok) {
+//                 setResponse(data);
+//                 setError(null);
+//             } else {
+//                 setError(data.error);
+//                 setResponse(null);
+//             }
+//         } catch (err) {
+//             setError(err.message);
+//             setResponse(null);
+//         }
+//     };
+
+//     return (
+//         <div>
+//             <h1>Sales Forecast Upload</h1>
+//             <form onSubmit={handleSubmit}>
+//                 <div>
+//                     <label>Window Size:</label>
+//                     <input
+//                         type="number"
+//                         value={period}
+//                         onChange={handlePeriodChange}
+//                         required
+//                     />
+//                 </div>
+//                 {/* <div>
+//                     <label>File:</label>
+//                     <input
+//                         type="file"
+//                         onChange={handleFileChange}
+//                         accept=".csv"
+//                         required
+//                     />
+//                 </div> */}
+
+//                 <div>
+//                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+//                     <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" onChange={handleFileChange}
+//                         accept=".csv"
+//                         required />
+//                 </div>
+
+//                 <button type="submit">Upload</button>
+//             </form>
+//             {response && (
+//                 <div>
+//                     <h2>Forecasting Response</h2>
+//                     <pre>{JSON.stringify(response, null, 2)}</pre>
+//                 </div>
+//             )}
+//             {error && <p style={{ color: "red" }}>{error}</p>}
+//         </div>
+//     );
+// };
+
+// export default Home;
